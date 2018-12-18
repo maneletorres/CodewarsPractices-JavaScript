@@ -1,2 +1,2 @@
-"# CodewarsExercises-JavaScript" 
-"# CodewarsPractices-JavaScript" 
+# CodewarsExercises-JavaScript
+Codewars practical exercises done in JavaScript.
