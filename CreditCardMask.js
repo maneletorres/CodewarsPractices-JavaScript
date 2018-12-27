@@ -15,7 +15,7 @@
  * all but the last four characters into '#'.
  * 
  * Examples:
- * maskify("4556364607935616") == "############5616"
+ * maskify("4556364561660793") == "############5616"
  * maskify(     "64607935616") ==      "#######5616"
  * maskify(               "1") ==                "1"
  * maskify(                "") ==                 ""
@@ -29,7 +29,8 @@ const rl = readline.createInterface({
 });
 
 function maskify(cc){
-    var result = "";
+    // Alternative 1 - Less efficient:
+    /*var result = "";
 
     for(var i = 0; i < cc.length; i++){
         if(i <= cc.length - 5){
@@ -39,7 +40,10 @@ function maskify(cc){
         }
     }
 
-    return result;
+    return result;*/
+
+    // Alternative 2 - More efficient:
+    return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
 }
 
 rl.question('Enter a word to mask it: ', (userInput) => {
