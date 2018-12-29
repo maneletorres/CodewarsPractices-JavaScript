@@ -24,7 +24,8 @@ const rl = readline.createInterface({
 });
 
 function rot13(message){
-    var result = "";
+    // Alternative 1 - Less efficient:
+    /*var result = "";
 
     for(var i = 0; i < message.length; i++){
         var asciiCode = message.charCodeAt(i);
@@ -37,7 +38,10 @@ function rot13(message){
         }
     }
 
-    return result;
+    return result;*/
+
+    // Alternative 2 - More efficient:
+    return message.replace(/[a-z]/gi, letter => String.fromCharCode(letter.charCodeAt(0) + (letter.toLowerCase().charCodeAt(0) <= 109 ? 13 : -13)));
 }
 
 rl.question('Enter the string you want to encrypt: ', (userInput) => {
