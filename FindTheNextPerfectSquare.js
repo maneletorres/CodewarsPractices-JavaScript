@@ -33,7 +33,8 @@ const rl = readline.createInterface({
 });
 
 function findNextSquare(sq){ 
-    var nextSquare = -1;
+    // Alternative 1 - Less efficient:
+    /*var nextSquare = -1;
 
     if(Number.isInteger(Math.sqrt(sq))){
         while(true){
@@ -45,7 +46,11 @@ function findNextSquare(sq){
         }
     }
 
-    return nextSquare;
+    return nextSquare;*/
+
+    // Alternative 2 - More efficient:
+    var squareRoot = Math.sqrt(sq);
+    return squareRoot % 1 ? -1 : Math.pow(squareRoot + 1, 2);
 }
 
 rl.question("Enter a number to find the next perfect number: ", (userInput) => {
