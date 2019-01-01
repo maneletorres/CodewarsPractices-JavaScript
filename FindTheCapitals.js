@@ -26,7 +26,7 @@ function capitals(word){
     return word.replace(/[A-Z]/g, letter => word.indexOf(letter)).replace(/[a-z]/gi, '').split('').map(Number);
 }
 
-rl.question('Question: ', (userInput) => {
-    console.log(capitals('CodEWaRs'));
+rl.question('Enter a text: ', (userInput) => {
+    console.log("The indices of the uppercase letters of the entered text '" + userInput + "' are: [" + capitals(userInput) + "].");
     rl.close();
 });
