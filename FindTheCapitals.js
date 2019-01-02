@@ -22,8 +22,24 @@ const rl = readline.createInterface({
 });
 
 function capitals(word){
-    //return word.split('').filter(letter => letter.toUpperCase() == letter);
-    return word.replace(/[A-Z]/g, letter => word.indexOf(letter)).replace(/[a-z]/gi, '').split('').map(Number);
+    // Alternative 1 - Very inefficient:
+    //return word.replace(/[A-Z]/g, letter => word.indexOf(letter)).replace(/[a-z]/gi, '').split('').map(Number);
+
+    // Alternatuve 2 - Quite efficient:
+    /*var result = [];
+
+    for(let i = 0; i < word.length; i++){
+        if(word[i].toUpperCase() == word[i]){
+            result.push(i);
+        }
+    }
+
+    return result;*/
+
+    // Alternative 3 - Very efficient:
+    return word.split('').reduce((initialValue, currentValue, currentIndex) => {
+        return currentValue == currentValue.toUpperCase() ? initialValue.concat(currentIndex) : initialValue;
+    }, []);
 }
 
 rl.question('Enter a text: ', (userInput) => {
