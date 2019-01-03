@@ -30,10 +30,8 @@ function XO(str){
     var ohs = 0;
 
     for(let i = 0; i < str.length; i++){
-        //if(str[i].match(/x/gi)){
         if(str[i] == 'X' || str[i] == 'x'){
             exes++;
-        //} else if(str[i].match(/o/gi)){
         } else if(str[i] == 'O' || str[i] == 'o'){
             ohs++;
         }
