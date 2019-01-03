@@ -26,21 +26,37 @@ const rl = readline.createInterface({
 
 function XO(str){
     // Alternative 1:
-    var exes = 0;
+    /*var exes = 0;
     var ohs = 0;
 
     for(let i = 0; i < str.length; i++){
-        if(str[i].match(/x/gi)){
+        //if(str[i].match(/x/gi)){
+        if(str[i] == 'X' || str[i] == 'x'){
             exes++;
+        //} else if(str[i].match(/o/gi)){
         } else if(str[i] == 'O' || str[i] == 'o'){
             ohs++;
         }
     }
 
-    return exes == ohs;
+    return exes == ohs;*/
 
     // Alternative 2:
-    //return (str.match(/x/gi) || []).length == (str.match(/o/gi) || []).length;
+    /*var exes = 0;
+    var ohs = 0;
+
+    for(let i = 0; i < str.length; i++){
+        if(str[i].match(/x/gi)){
+            exes++;
+        } else if(str[i].match(/o/gi)){
+            ohs++;
+        }
+    }
+
+    return exes == ohs;*/
+
+    // Alternative 3:
+    return (str.match(/x/gi) || []).length == (str.match(/o/gi) || []).length;
 }
 
 rl.question("Enter a word to tell if it has the same number of 'X' as of 'O': ", (userInput) => {
