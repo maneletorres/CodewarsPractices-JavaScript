@@ -23,7 +23,8 @@ const rl = readline.createInterface({
 });
 
 function sumDigits(number){
-    var result = 0;
+    // Alternative 1:
+    /*var result = 0;
 
     number = Math.abs(number);
     while(number >= 1){
@@ -31,7 +32,10 @@ function sumDigits(number){
         number = parseInt(number / 10);
     }
 
-    return result;
+    return result;*/
+
+    // Alternative 2:
+    return Math.abs(number).toString().split('').map(Number).reduce((a, b) => { return a + b; });
 }
 
 rl.question('Enter a number to calculate the absolute sum of its digits: ', (userInput) => {
