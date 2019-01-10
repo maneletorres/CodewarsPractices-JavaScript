@@ -5,14 +5,9 @@
  * Codewars exercise: "Credit Card Mask"
  * 
  * Description:
- * Usually when you buy something, you're asked whether your 
- * credit card number, phone number or answer to your most 
- * secret question is still correct. However, since someone 
- * could look over your shoulder, you don't want that shown 
- * on your screen. Instead, we mask it.
+ * Usually when you buy something, you're asked whether your credit card number * phone number or answer to your most secret question is still correct.       * However, since someone could look over your shoulder, you don't want that   * shown  on your screen. Instead, we mask it.
  * 
- * Your task is to write a function maskify, which changes 
- * all but the last four characters into '#'.
+ * Your task is to write a function maskify, which changes all but the last    * four characters into '#'.
  * 
  * Examples:
  * maskify("4556364561660793") == "############5616"
@@ -21,7 +16,8 @@
  * maskify(                "") ==                 ""
  * 
  */
-const readline = require('readline');
+// Individual script:
+/*const readline = require('readline');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -30,8 +26,7 @@ const rl = readline.createInterface({
 
 function maskify(cc){
     // Alternative 1 - Less efficient:
-    /*var result = "";
-
+    var result = "";
     for(var i = 0; i < cc.length; i++){
         if(i <= cc.length - 5){
             result += "#";
@@ -39,8 +34,7 @@ function maskify(cc){
             result += cc.charAt(i);
         }
     }
-
-    return result;*/
+    return result;
 
     // Alternative 2 - More efficient:
     return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
@@ -49,4 +43,16 @@ function maskify(cc){
 rl.question('Enter a word to mask it: ', (userInput) => {
     console.log('Masked result: ' +  maskify(userInput) + '.');
     rl.close();
-});
+});*/
+
+/**
+ * Alternative approach:
+ * 
+ * Use of index for the export of the various functions of 
+ * Codewars exercise.
+ */
+module.exports = { 
+    maskify: function maskify(cc){
+        return 'Masked result: ' + cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4) + '.';
+    }
+};
