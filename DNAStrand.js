@@ -25,7 +25,8 @@ const rl = readline.createInterface({
 });
 
 function DNAStrand(dna){
-    var result = "";
+    // Alternative 1:
+    /*var result = "";
   
     for(let i = 0; i < dna.length; i++){
         switch(dna[i]){
@@ -44,7 +45,11 @@ function DNAStrand(dna){
         }
     }
     
-    return result;
+    return result;*/
+
+    // Alternative 2:
+    letterChanges = {A: 'T', T: 'A', C: 'G', G: 'C'};
+    return dna.split('').map(function(x){ return letterChanges[x]}).join('');
 }
 
 rl.question('Enter a DNA string: ', (userInput) => {
